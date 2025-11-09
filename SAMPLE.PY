@@ -16,7 +16,7 @@ load_dotenv(find_dotenv())
 DB_FAISS_PATH="vectorstore/db_faiss"
 @st.cache_resource
 def get_vectorstore():
-    embedding_model=HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    embedding_model=HuggingFaceEmbeddings(model_name='')
     db=FAISS.load_local(DB_FAISS_PATH, embedding_model, allow_dangerous_deserialization=True)
     return db
 
@@ -92,4 +92,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
